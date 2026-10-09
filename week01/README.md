@@ -1,20 +1,30 @@
 # KERT 웹 백엔드 스터디 - 1주차
  
-<!-- 이 파일 속 내용을 직접 채워주세요! 주석(이 줄 같은 회색 글)은 다 채운 뒤 지워도 됩니다. -->
- 
-## 실행 방법
- 
-<!-- 이 레포를 처음 clone 한 사람이 그대로 따라 하면 서버가 뜨도록 순서대로 적으세요. -->
- 
+## 실행 방법w
+1. 환경 설정(node 설치 필요)
+npm init -y
+npm install express
+
+2. 서버 실행
+ - node app.js
+or nodemon(개발용 서버)
+ - npm install -D nodemon
+ - package.json 의 "scripts" 에 "dev": "nodemon app.js" 추가
+ - npm run dev
+
+ 브라우저 접속: localhost:3000/
+
 ## 구현한 라우트
- 
-<!-- 만든 라우트와 각각 무엇을 보여주는지 적으세요. -->
+ / : 홈
+ /about : 간단한 자기소개
+ /photo : image.jpg 표시
+ /time : 접속 시각 표시
+ /posts : 포스트 목록 표시
+
  
 ## 연습 문제
- 
-<!-- node practice.js 실행 결과의 마지막 줄을 적으세요. -->
+ 10 / 10 통과
  
 ## (도전) /time 이 새로고침할 때마다 바뀌는 이유
- 
-<!-- (선택) 2~3줄로 적어보세요. -->
+ const accessTime이 '/time' 라우트 안에서 선언되므로 페이지를 새로고침 할 때마다 라우트 안의 코드가 실행되어 시간이 새로 초기화된다.
  

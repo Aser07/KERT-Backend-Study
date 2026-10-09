@@ -1,16 +1,31 @@
 // ===== 아래 4개의 함수를 구현해 주세요. =====
 
 function findPost(posts, id) {
+  const post = posts.find(post => post.id === id);
+  return post !== undefined ? post : null;
 }
 
 function searchPosts(posts, keyword) {
+  return posts.filter(post => post.title.includes(keyword));
 }
 
 function addPost(posts, title, author) {
+  const maxId = posts.length > 0 ? Math.max(...posts.map(post => post.id)) : 0;
+  const newPost = { id: maxId + 1, title, author };
+  posts.push(newPost);
+  return newPost;
 }
 
 function renderPostList(posts) {
+  if (posts.length === 0) {
+    return '<p>글이 없습니다</p>';
+  }
+  const items = posts.map(post => `<li>[${post.id}] ${post.title} (${post.author})</li>`).join('');
+  return `<ul>${items}</ul>`;
 }
+
+// module export (app.js에서 사용하기 위함)
+module.exports = { renderPostList };
 
 // ===== 이 아래는 채점 코드입니다. 수정하지 마세요 =====
 
