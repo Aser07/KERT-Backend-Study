@@ -1,0 +1,9 @@
+<%- include('partials/header') %>
+<h2><%= post.title %></h2>
+<p>작성자: <%= post.author %></p>
+<p><%= post.content %></p>
+<form method="POST" action="/posts/<%= post.id %>/delete">
+ <button>삭제</button>
+</form>
+<a href="/posts">목록으로</a>
+<%- include('partials/footer') %>
