@@ -1,0 +1,9 @@
+<%- include('partials/header') %>
+<h2>글쓰기</h2>
+<form method="POST" action="/posts">
+ <p><input name="title" placeholder="제목"></p>
+ <p><input name="author" placeholder="작성자"></p>
+ <p><textarea name="content" placeholder="내용"></textarea></p>
+ <button>등록</button>
+</form>
+<%- include('partials/footer') %>
