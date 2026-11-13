@@ -65,24 +65,24 @@ week03/
 
 글과 회원은 `board.db` (SQLite) 에 저장합니다. 테이블과 열 이름은 아래와 같게 만들어 주세요.
 
-| 테이블 | 열 |
-|---|---|
+| 테이블    | 열                                                                     |
+| --------- | ---------------------------------------------------------------------- |
 | `users` | `id`, `username`, `password`, `role` (`user` 또는 `admin`) |
-| `posts` | `id`, `title`, `content`, `user_id` |
+| `posts` | `id`, `title`, `content`, `user_id`                            |
 
-| 메서드 | 주소 | 누가 | 요구사항 |
-|---|---|---|---|
-| GET | `/signup` | 누구나 | `signup.ejs` 렌더. 입력칸 `name` 은 `username` · `password` (`type="password"`) |
-| POST | `/signup` | 누구나 | 비밀번호는 bcrypt 해시로 저장 후 `/login` 으로 redirect. 이미 있는 아이디는 가입 불가 |
-| GET | `/login` | 누구나 | `login.ejs` 렌더 |
-| POST | `/login` | 누구나 | 로그인 후 `/posts` 로 redirect. 비밀번호가 틀리면 로그인되지 않음 |
-| POST | `/logout` | 로그인한 사람 | 로그아웃 후 `/posts` 로 redirect |
-| GET | `/posts` | 누구나 | 글마다 `[id] 제목 (작성자 아이디)`, 제목을 누르면 상세로 이동 |
-| GET | `/posts/:id` | 누구나 | 제목 · 작성자 아이디 · 내용. 없는 글은 404. 삭제 버튼은 작성자와 관리자에게만 |
-| GET | `/posts/new` | 로그인한 사람 | 입력칸 `name` 은 `title` · `content` (작성자 입력칸 없음) |
-| POST | `/posts` | 로그인한 사람 | 작성자는 로그인한 사람으로 저장 후 새 글 상세로 redirect |
-| POST | `/posts/:id/delete` | 작성자 · 관리자 | 삭제 후 `/posts` 로 redirect. 다른 사람은 403 |
-| GET | `/admin` | 관리자 | 회원 목록 `[id] 아이디 (role)`. 관리자가 아니면 403 |
+| 메서드 | 주소                  | 누가             | 요구사항                                                                                   |
+| ------ | --------------------- | ---------------- | ------------------------------------------------------------------------------------------ |
+| GET    | `/signup`           | 누구나           | `signup.ejs` 렌더. 입력칸 `name` 은 `username` · `password` (`type="password"`) |
+| POST   | `/signup`           | 누구나           | 비밀번호는 bcrypt 해시로 저장 후 `/login` 으로 redirect. 이미 있는 아이디는 가입 불가    |
+| GET    | `/login`            | 누구나           | `login.ejs` 렌더                                                                         |
+| POST   | `/login`            | 누구나           | 로그인 후 `/posts` 로 redirect. 비밀번호가 틀리면 로그인되지 않음                        |
+| POST   | `/logout`           | 로그인한 사람    | 로그아웃 후 `/posts` 로 redirect                                                         |
+| GET    | `/posts`            | 누구나           | 글마다 `[id] 제목 (작성자 아이디)`, 제목을 누르면 상세로 이동                            |
+| GET    | `/posts/:id`        | 누구나           | 제목 · 작성자 아이디 · 내용. 없는 글은 404. 삭제 버튼은 작성자와 관리자에게만            |
+| GET    | `/posts/new`        | 로그인한 사람    | 입력칸 `name` 은 `title` · `content` (작성자 입력칸 없음)                           |
+| POST   | `/posts`            | 로그인한 사람    | 작성자는 로그인한 사람으로 저장 후 새 글 상세로 redirect                                   |
+| POST   | `/posts/:id/delete` | 작성자 · 관리자 | 삭제 후 `/posts` 로 redirect. 다른 사람은 403                                            |
+| GET    | `/admin`            | 관리자           | 회원 목록 `[id] 아이디 (role)`. 관리자가 아니면 403                                      |
 
 - 로그인이 필요한 주소에 로그인하지 않고 들어오면 `/login` 으로 redirect
 - 로그인하면 상단(header)에 내 아이디 표시

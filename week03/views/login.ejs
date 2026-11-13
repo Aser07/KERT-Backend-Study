@@ -1,0 +1,11 @@
+<%- include('partials/header') %>
+<h2>로그인</h2>
+<% if (error) { %>
+  <p style="color: red;"><%= error %></p>
+<% } %>
+<form method="POST" action="/login">
+  <p><input name="username" placeholder="아이디"></p>
+  <p><input type="password" name="password" placeholder="비밀번호"></p>
+  <button>로그인</button>
+</form>
+<%- include('partials/footer') %>
