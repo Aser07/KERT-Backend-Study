@@ -1,0 +1,13 @@
+<nav>
+  <% if (user) { %>
+    <%= user.username %> 님 
+    <form method="POST" action="/logout" style="display: inline"> 
+      <button>로그아웃</button> 
+    </form>
+    <% if (user.role === 'admin') { %> 
+      <a href="/admin">관리자</a> 
+    <% } %>
+  <% } else { %> 
+    <a href="/login">로그인</a> · <a href="/signup">회원가입</a> 
+  <% } %> 
+</nav>
